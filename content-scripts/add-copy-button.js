@@ -1,3 +1,8 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+
 // 扩展的 UUID。
 const EXTENSION_UUID = browser.i18n.getMessage("@@extension_id");
 // 原网站中「图标 URL 复制按钮」的选择器。
