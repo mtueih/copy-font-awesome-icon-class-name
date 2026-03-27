@@ -1,0 +1,22 @@
+{
+	"extensionName": {
+		"message": "复制 Font Awesome 图标类名",
+		"description": "扩展的名称，显示在管理页面和商店。"
+	},
+	"extensionDescription": {
+		"message": "在 Font Awesome 的图标详情界面中添加一个按钮。点击该按钮，即可一键复制当前图标的类名。",
+		"description": "该扩展的描述。"
+	},
+	"cpyBtnTooltipText": {
+		"message": "复制图标类名",
+		"description": "复制按钮的悬浮气泡的默认显示文本。"
+	},
+	"cpyBtnTooltipTextCopySuccess": {
+		"message": "已复制",
+		"description" : "复制成功时，复制按钮的悬浮气泡的显示文本。"
+	},
+	"cpyBtnTooltipTextCopyFail": {
+		"message": "复制失败",
+		"description" : "复制失败时，复制按钮的悬浮气泡的显示文本。"
+	}
+}

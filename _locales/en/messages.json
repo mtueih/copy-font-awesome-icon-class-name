@@ -1,0 +1,22 @@
+{
+	"extensionName": {
+		"message": "Copy Font Awesome Icon Class Name",
+		"description": "The extended name, which is displayed on the management page and the store."
+	},
+	"extensionDescription": {
+		"message": "Insert a button in the icon details interface of Font Awesome. Clicking this button allows you to copy the class name of the current icon with one click.",
+		"description": "The description of the extension."
+	},
+	"cpyBtnTooltipText": {
+		"message": "Copy icon class name",
+		"description": "The default text displayed in the tooltip for the Copy button."
+	},
+	"cpyBtnTooltipTextCopySuccess": {
+		"message": "Copied",
+		"description" : "The text displayed in the tooltip for the Copy button when copying is successful."
+	},
+	"cpyBtnTooltipTextCopyFail": {
+		"message": "Copy failed",
+		"description" : "The text displayed in the tooltip for the Copy button when copying fails."
+	}
+}
