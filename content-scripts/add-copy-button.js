@@ -15,7 +15,7 @@ const ICON_CLASS_NAME_EL_SELECTORS = [
 	"span.token.attr-value",
 	"span.token.script.language-javascript"
 ];
-// 从包含类名元素中提取类名的正则表达式。
+// 从「包含类名元素」中提取类名的正则表达式。
 const ICON_CLASS_NAME_REGEX = /=["{](.+)["}]/;
 // 指定类名是第几个捕获组。
 const ICON_CLASS_NAME_REGEX_GROUP = 1;
@@ -23,7 +23,7 @@ const ICON_CLASS_NAME_REGEX_GROUP = 1;
 // （使用「扩展的 UUID」以防止冲突。）
 const UNIQUE_CPY_BTN_ID = `cpy-btn-Extension-${EXTENSION_UUID}`;
 // 「用于美化「图标类名复制按钮」样式的一系列 CSS」的 style 标签的唯一 ID。
-// 防止重复插入。
+// （用于防止重复插入。）
 // （使用「扩展的 UUID」以防止冲突。）
 const UNIQUE_CPY_BTN_STYLE_ID = `cpy-btn-style-Extension-${EXTENSION_UUID}`;
 // 唯一按钮状态类名，防止冲突。
