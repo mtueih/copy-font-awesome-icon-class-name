@@ -4,7 +4,7 @@
 
 
 // 匹配目标 URL 的正则表达式。
-const TARGET_URL_REGEX = /^https:\/\/fontawesome\.com\/icons\/[\w-]+\?f=[\w-]+&s=[\w-]+.*/;
+const TARGET_URL_REGEX = /^https?:\/\/fontawesome\.com\/(?:v\d+\/)?icons(?:\/[\w-]+){3}\/?/;
 
 // 监听 URL 变化。
 browser.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
