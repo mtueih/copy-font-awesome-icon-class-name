@@ -1,16 +1,19 @@
 # Copy Font Awesome Icon Class Name
 
-![Mozilla Add-on](https://img.shields.io/amo/v/copy-fa-icon-class-name.svg?style=flat-square)
-![Mozilla Add-on Rating](https://img.shields.io/amo/rating/copy-fa-icon-class-name.svg?style=flat-square)
-![License](https://img.shields.io/badge/license-MPL--2.0-blue.svg?style=flat-square)
-![Manifest V3](https://img.shields.io/badge/Manifest-V3-orange.svg?style=flat-square)
+[![Firefox Add-on Version](https://img.shields.io/amo/v/copy-fa-icon-class-name)](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/)
+[![Firefox Add-on Users](https://img.shields.io/amo/users/copy-fa-icon-class-name)](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/)
+[![Firefox Add-on Rating](https://img.shields.io/amo/stars/copy-fa-icon-class-name)](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/reviews/)
+![Platform Support](https://img.shields.io/badge/platform-Firefox-orange?logo=firefox)
+![Manifest Version](https://img.shields.io/badge/manifest-V3-blue)
+[![GitHub License](https://img.shields.io/github/license/mtueih/copy-font-awesome-icon-class-name)](LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/mtueih/copy-font-awesome-icon-class-name)](https://github.com/mtueih/copy-font-awesome-icon-class-name/issues)
 
 A Firefox extension that adds a button to the Font Awesome icon details page. Clicking this button allows you to copy the class name of the current icon with a single click. 
 
 ## Installation
 
-Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/copy-fa-icon-class-name/).
+Install from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/).
 
 ## License
 
-[Mozilla Public License 2.0](LICENSE)
+This project is licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/) - see the [LICENSE](LICENSE) file for details.
