@@ -1,6 +1,10 @@
+<div align="center">
+
+<img src="icons/icon.svg" alt="Project Logo" width="64em" style="display: block; margin: 1em auto;" />
+
 # Copy Font Awesome Icon Class Name
 
-<img src="icons/icon.svg" width="64em" style="display: block; margin: 1em auto;" />
+A Firefox add-on that lets you copy Font Awesome icon class names with a single click.
 
 ![Platform Support](https://img.shields.io/badge/platform-Firefox-orange?logo=firefox)
 ![Manifest Version](https://img.shields.io/badge/manifest-V3-blue)
@@ -9,7 +13,7 @@
 [![Firefox Add-on Users](https://img.shields.io/amo/users/copy-fa-icon-class-name)](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/)
 [![Firefox Add-on Rating](https://img.shields.io/amo/rating/copy-fa-icon-class-name)](https://addons.mozilla.org/firefox/addon/copy-fa-icon-class-name/reviews/)
 
-A Firefox add-on that lets you copy Font Awesome icon class names with a single click.
+</div>
 
 ## Introduction
 
