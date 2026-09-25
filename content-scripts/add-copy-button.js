@@ -1,6 +1,5 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
-// License, v. 2.0. If a copy of the MPL was not distributed with this
-// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+// SPDX-License-Identifier: ISC
+// Copyright (c) 2026, mtueih
 
 
 // 扩展的 UUID。
@@ -56,8 +55,8 @@ const CPY_BTN_CSS_BTN_COLOR_HOVER = "#2F4F4F";
 const CPY_BTN_CSS_BTN_TOOLTIP_COLOR = "#FFFFF0";
 // 当复制成功时，按钮悬停悬浮气泡文字颜色。
 const CPY_BTN_CSS_BTN_TOOLTIP_COLOR_COPY_SUCCESS = "#7CFC00";
-// 当复制成功时，按钮悬停悬浮气泡文字颜色。
-const CPY_BTN_CSS_BTN_TOOLTIP_COLOR_COPY_FIAL = "#FFA500";
+// 当复制失败时，按钮悬停悬浮气泡文字颜色。
+const CPY_BTN_CSS_BTN_TOOLTIP_COLOR_COPY_FAIL = "#FFA500";
 
 
 // 用于美化「图标类名复制按钮」样式的一系列 CSS 的字符串。
@@ -120,7 +119,7 @@ const CPY_BTN_CSS = `
 	}
 
 	#${UNIQUE_CPY_BTN_ID}.${UNIQUE_CPY_BTN_FAIL_CLASS}::after {
-		color: ${CPY_BTN_CSS_BTN_TOOLTIP_COLOR_COPY_FIAL};
+		color: ${CPY_BTN_CSS_BTN_TOOLTIP_COLOR_COPY_FAIL};
 	}
 `;
 
@@ -270,7 +269,7 @@ function insertCopyButton(urlCpyBtn) {
 	}
 
 	// 创建按钮元素。
-	let cpyBtn = document.createElement("button");
+	const cpyBtn = document.createElement("button");
 	// 设置唯一 ID，防止重复插入。
 	cpyBtn.id = UNIQUE_CPY_BTN_ID;
 
