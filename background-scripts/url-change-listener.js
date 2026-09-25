@@ -7,15 +7,14 @@ const TARGET_URL_REGEX =
 
 // 监听 URL 变化。
 browser.webNavigation.onHistoryStateUpdated.addListener(
-  async (details) => {
-    // const currentUrl = details.url;
-    const currentTabId = details.tabId;
+  (details) => {
+    // console.log("【后台脚本】：URL 变化：", details.tabId);
 
-    // console.log("【后台脚本】：URL 变化：", currentUrl);
-
-    browser.tabs.sendMessage(currentTabId, {
-      type: "goToTargetUrl",
-    });
+    browser.tabs
+      .sendMessage(details.tabId, {
+        type: "goToTargetUrl",
+      })
+      .catch(() => {});
   },
   { url: [{ urlMatches: TARGET_URL_REGEX.source }] },
 );
