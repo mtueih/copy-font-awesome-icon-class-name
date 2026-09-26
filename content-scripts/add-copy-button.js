@@ -129,14 +129,14 @@ let CpyBtnStatusTimer;
 // console.log("【内容脚本】：已被注入！");
 
 // 等待元素加载完成。
-function waitForElement(selector) {
+function waitForElement(selectors) {
   return new Promise((resolve) => {
     // 如果元素已经存在，直接返回
-    const el = document.querySelector(selector);
+    const el = document.querySelector(selectors);
     if (el) return resolve(el);
 
     const observer = new MutationObserver(() => {
-      const el = document.querySelector(selector);
+      const el = document.querySelector(selectors);
       if (el) {
         observer.disconnect();
         resolve(el);
@@ -292,9 +292,7 @@ function insertCopyButton(urlCpyBtn) {
 }
 
 browser.runtime.onMessage.addListener((message) => {
-  if (message?.type !== "goToTargetUrl") {
-    return;
-  }
+  if (message !== 1) return;
 
   // console.log("【内容脚本】：收到来自「后台脚本」的消息。");
 
