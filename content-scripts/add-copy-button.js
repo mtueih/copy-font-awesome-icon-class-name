@@ -5,7 +5,9 @@
 const EXTENSION_UUID = browser.i18n.getMessage("@@extension_id");
 // 原网站中「图标 URL 复制按钮」的选择器。
 // （「图标类名复制按钮」将会插入到其后。）
-const URL_CPY_BTN_SELECTORS = ['button[aria-label="Copy Icon URL"]'];
+const URL_CPY_BTN_SELECTOR = ".copy-button";
+// 等待原网站元素加载的最长时间。
+const ELEMENT_WAIT_TIMEOUT = 10000;
 // 包含「图标类名」的元素的选择器。
 const ICON_CLASS_NAME_EL_SELECTORS = [
   "span.token.attr-value",
@@ -128,26 +130,43 @@ let CpyBtnStatusTimer;
 
 // console.log("【内容脚本】：已被注入！");
 
-// 等待元素加载完成。
-function waitForElement(selectors) {
-  return new Promise((resolve) => {
-    // 如果元素已经存在，直接返回
-    const el = document.querySelector(selectors);
-    if (el) return resolve(el);
+// 等待回调返回元素，并在超时后停止观察。
+async function waitForElement(getElement) {
+  const el = getElement();
+  if (el) return el;
 
+  return new Promise((resolve, reject) => {
+    let timeoutId;
     const observer = new MutationObserver(() => {
-      const el = document.querySelector(selectors);
+      const el = getElement();
       if (el) {
         observer.disconnect();
+        clearTimeout(timeoutId);
         resolve(el);
       }
     });
 
-    observer.observe(document.body, {
+    observer.observe(document.documentElement, {
       childList: true,
       subtree: true,
     });
+
+    timeoutId = setTimeout(() => {
+      observer.disconnect();
+      reject(new Error("等待页面元素超时。"));
+    }, ELEMENT_WAIT_TIMEOUT);
   });
+}
+
+// 按需等待原网站按钮出现，并决定扩展按钮应插入的容器。
+async function getCopyButtonContainer() {
+  const urlCpyBtn = await waitForElement(() => {
+    const urlCpyBtns = document.querySelectorAll(URL_CPY_BTN_SELECTOR);
+    return urlCpyBtns?.length ? urlCpyBtns[urlCpyBtns.length - 1] : null;
+  });
+  const container = urlCpyBtn.parentElement;
+  if (!container) throw new Error("未找到原网站按钮的父容器。");
+  return container;
 }
 
 // 临时切换按钮状态（复制成功/失败），一定延迟后复原。
@@ -256,9 +275,8 @@ function setCopyButton(cpyBtn) {
   cpyBtn.appendChild(btnSvg);
 }
 
-// 插入按钮。
-function insertCopyButton(urlCpyBtn) {
-  const container = urlCpyBtn.parentElement;
+// 将按钮追加到已确定的容器中。
+function insertCopyButton(container) {
   if (!container) {
     // console.error("【内容脚本】：不可预测的错误：「URL 复制按钮」的父元素为空！");
     return;
@@ -296,8 +314,9 @@ browser.runtime.onMessage.addListener((message) => {
 
   // console.log("【内容脚本】：收到来自「后台脚本」的消息。");
 
-  waitForElement(URL_CPY_BTN_SELECTORS.join(",")).then((urlCpyBtn) => {
-    // console.log("【内容脚本】：「图标 URL 复制按钮」加载完成！");
-    insertCopyButton(urlCpyBtn);
-  });
+  getCopyButtonContainer()
+    .then((container) => container && insertCopyButton(container))
+    .catch((err) => {
+      // console.error(err);
+    });
 });
